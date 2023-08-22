@@ -10,6 +10,10 @@ require_once('phpmailer/src/Exception.php');
 require_once('phpmailer/src/PHPMailer.php');
 require_once('phpmailer/src/SMTP.php');
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
+
 // open session
 session_start();
 
@@ -72,6 +76,14 @@ $body = "
 
 //send email using PHPMailer
 $mail = new PHPMailer(true);
+
+$mail->isSMTP();
+$mail->Host        = 'smpt.gmail.com;';
+$mail->SMTPAuth    = true;
+$mail->Username    = 'bhevball@gmail.com'
+$mail->Password    = 'xljbbnebatodhybi';
+$mail->SMTPSecure  = 'tls';
+$mail->Port        = 587;
 
 //Recipients
 $mail->setFrom('no-reply@mydomain.com', 'Company Name');  // which email will be sent from
