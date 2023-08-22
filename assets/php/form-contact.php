@@ -95,6 +95,8 @@ $mail->IsHTML(true);
 $mail->Subject = 'Inquiry from Website';  // subject of the letter
 $mail->Body = $body;
 $mail->AltBody = "Name: $name, Email sender: $email, Comment: $message";
+
+echo 'we got to here';
 	
 if ($mail->send() && $errorMSG == ''){
    echo 'success';
